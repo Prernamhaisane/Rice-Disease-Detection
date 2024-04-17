@@ -5,11 +5,12 @@ from PIL import Image, ImageOps
 import numpy as np
 from tensorflow.keras.preprocessing import image
 
-filename="riceleafdisease1.h5"
-f=h5py.File(filename,'r')
+filename = r"C:\Users\PRERNA\OneDrive\Desktop\B.TechProject\riceleafdisease1.h5"
 
-# Load the model
-loaded_model = tf.keras.models.load_model(filename)
+# Open the HDF5 file
+with h5py.File(filename, 'r') as f:
+    # Load the model
+    loaded_model = tf.keras.models.load_model(filename)
 
 # Function to predict the label
 def predict(model, img):
