@@ -8,13 +8,16 @@ from tensorflow.keras.preprocessing import image
 filename = "riceleafdisease1.h5"
 loaded_model = tf.keras.models.load_model(filename)
 
-
 # Function to predict the label
 def predict(model, img):
     img_array = tf.keras.preprocessing.image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     predictions = model.predict(img_array)
-    predicted_class = class_names[np.argmax(predictions[0])]
+    predicted_class_index = np.argmax(predictions[0])
+    if predicted_class_index < len(class_names):
+        predicted_class = class_names[predicted_class_index]
+    else:
+        predicted_class = "Cant determine"
     return predicted_class
 
 # Load the image
@@ -55,7 +58,11 @@ def predict_disease(image, model):
     img_array = tf.keras.preprocessing.image.img_to_array(image)
     img_array = np.expand_dims(img_array, axis=0)
     predictions = model.predict(img_array)
-    predicted_class = class_names[np.argmax(predictions[0])]
+    predicted_class_index = np.argmax(predictions[0])
+    if predicted_class_index < len(class_names):
+        predicted_class = class_names[predicted_class_index]
+    else:
+        predicted_class = "Cant determine"
     return predicted_class, predictions
 
 st.write("""
@@ -75,4 +82,7 @@ else:
 
     st.write("Predicted Class:", predicted_class)
     st.write("Confidence:", confidence)
-    st.write("Remedies:- ", remedies[predicted_class])  # Display suggestions for predicted disease
+    if predicted_class == "Cant determine":
+        st.write("Cannot determine the disease.")
+    else:
+        st.write("Remedies:- ", remedies.get(predicted_class, "Remedies not available"))  # Display suggestions for predicted disease
