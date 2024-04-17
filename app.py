@@ -5,7 +5,7 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 
 # Load the model
-loaded_model = tf.keras.models.load_model(r'C:\Users\PRERNA\OneDrive\Desktop\B.TechProject\riceleafdisease1.h5')
+loaded_model = tf.keras.models.load_model(r"c:\Users\PRERNA\OneDrive\Desktop\B.TechProject\riceleafdisease1.h5")
 
 # Function to predict the label
 def predict(model, img):
