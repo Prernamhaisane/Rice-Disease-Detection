@@ -7,8 +7,8 @@ from tensorflow.keras.preprocessing import image
 
 filename = r"C:\Users\PRERNA\OneDrive\Desktop\B.TechProject\riceleafdisease1.h5"
     # Open the HDF5 file
-    with h5py.File(filename, 'r') as f:
-        loaded_model = tf.keras.models.load_model(filename)
+with h5py.File(filename, 'r') as f:
+    loaded_model = tf.keras.models.load_model(filename)
 
 
 # Function to predict the label
