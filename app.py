@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 import numpy as np
 from tensorflow.keras.preprocessing import image
 
-filename='c:/Users/PRERNA/OneDrive/Desktop/B.TechProject/riceleafdisease1.h5'
+filename="C:\Users\PRERNA\OneDrive\Desktop\B.TechProject\riceleafdisease1.h5"
 f=h5py.File(filename,'r')
 
 # Load the model
