@@ -16,6 +16,11 @@ try:
     # Model loaded successfully
     print("Model loaded successfully.")
 
+except FileNotFoundError:
+    print("File not found:", filename)
+except Exception as e:
+    print("Error:", e)
+
 
 # Function to predict the label
 def predict(model, img):
@@ -84,8 +89,3 @@ else:
     st.write("Predicted Class:", predicted_class)
     st.write("Confidence:", confidence)
     st.write("Remedies:- ", remedies[predicted_class])  # Display suggestions for predicted disease
-
-except FileNotFoundError:
-    print("File not found:", filename)
-except Exception as e:
-    print("Error:", e)
