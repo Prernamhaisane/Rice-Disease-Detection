@@ -1,9 +1,9 @@
+import h5py
 import tensorflow as tf
 import streamlit as st
 from PIL import Image, ImageOps
 import numpy as np
 from tensorflow.keras.preprocessing import image
-import h5py
 
 filename='c:/Users/PRERNA/OneDrive/Desktop/B.TechProject/riceleafdisease1.h5'
 f=h5py.File(filename,'r')
