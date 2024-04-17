@@ -5,9 +5,7 @@ from PIL import Image, ImageOps
 import numpy as np
 from tensorflow.keras.preprocessing import image
 
-filename = r"C:\Users\PRERNA\OneDrive\Desktop\B.TechProject\riceleafdisease1.h5"
-    # Open the HDF5 file
-f = h5py.File(filename, 'r')
+filename = "riceleafdisease1.h5"
 loaded_model = tf.keras.models.load_model(filename)
 
 
