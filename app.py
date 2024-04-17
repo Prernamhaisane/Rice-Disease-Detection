@@ -12,10 +12,9 @@ try:
     with h5py.File(filename, 'r') as f:
         # Load the model
         loaded_model = tf.keras.models.load_model(filename)
-except FileNotFoundError:
-    print("File not found:", filename)
-except Exception as e:
-    print("Error:", e)
+        
+    # Model loaded successfully
+    print("Model loaded successfully.")
 
 
 # Function to predict the label
@@ -85,3 +84,8 @@ else:
     st.write("Predicted Class:", predicted_class)
     st.write("Confidence:", confidence)
     st.write("Remedies:- ", remedies[predicted_class])  # Display suggestions for predicted disease
+
+except FileNotFoundError:
+    print("File not found:", filename)
+except Exception as e:
+    print("Error:", e)
