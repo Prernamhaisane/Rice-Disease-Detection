@@ -73,5 +73,5 @@ else:
     confidence = np.max(predictions)
 
     st.write("Predicted Class:", predicted_class)
-    st.write("Confidence:", confidence)
+    st.write(f'Confidence is {confidence*100}%')
     st.write("Remedies:- ", remedies[predicted_class])  # Display suggestions for predicted disease
